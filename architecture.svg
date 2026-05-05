@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 760" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 600" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15">
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#222" />
@@ -16,167 +16,119 @@
   </defs>
 
   <!-- Column headers -->
-  <text x="170" y="44" font-size="22" font-weight="700" text-anchor="middle">Slack</text>
-  <text x="600" y="44" font-size="22" font-weight="700" text-anchor="middle">Channel framework</text>
-  <text x="1180" y="44" font-size="22" font-weight="700" text-anchor="middle">Agent runtime</text>
+  <text x="160" y="40" font-size="20" font-weight="700" text-anchor="middle">Slack</text>
+  <text x="615" y="40" font-size="20" font-weight="700" text-anchor="middle">Channel implementation</text>
+  <text x="1150" y="40" font-size="20" font-weight="700" text-anchor="middle">Agent runtime</text>
 
   <!-- Column separators -->
-  <line x1="330" y1="60" x2="330" y2="700" stroke="#999" stroke-width="1.5" stroke-dasharray="6 6" />
-  <line x1="880" y1="60" x2="880" y2="700" stroke="#999" stroke-width="1.5" stroke-dasharray="6 6" />
+  <line x1="310" y1="55" x2="310" y2="555" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6 6" />
+  <line x1="920" y1="55" x2="920" y2="555" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6 6" />
 
   <!-- ============ Slack column ============ -->
 
-  <rect x="50" y="90" width="240" height="70" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="170" y="120" text-anchor="middle" font-weight="600">User in Slack</text>
-  <text x="170" y="142" text-anchor="middle" font-size="13" fill="#555">/zip-agent · split-pane message</text>
+  <rect x="50" y="100" width="220" height="60" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="160" y="126" text-anchor="middle" font-weight="600">User in Slack</text>
+  <text x="160" y="146" text-anchor="middle" font-size="12" fill="#555">/zip-agent or split-pane</text>
 
-  <rect x="50" y="210" width="240" height="70" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="170" y="240" text-anchor="middle" font-weight="600">HTTPS webhook</text>
-  <text x="170" y="260" text-anchor="middle" font-size="13" fill="#555">POST /slack · POST /slack/events</text>
+  <rect x="50" y="220" width="220" height="60" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="160" y="246" text-anchor="middle" font-weight="600">HTTPS webhook</text>
+  <text x="160" y="266" text-anchor="middle" font-size="12" fill="#555">POST /slack/events</text>
 
-  <rect x="50" y="480" width="240" height="90" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="170" y="510" text-anchor="middle" font-weight="600">Slack Web API</text>
-  <text x="170" y="530" text-anchor="middle" font-size="13" fill="#555">chat.update · postMessage</text>
-  <text x="170" y="548" text-anchor="middle" font-size="13" fill="#555">assistant.threads.setStatus</text>
+  <rect x="50" y="420" width="220" height="72" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="160" y="447" text-anchor="middle" font-weight="600">Slack Web API</text>
+  <text x="160" y="465" text-anchor="middle" font-size="12" fill="#555">chat.update / postMessage</text>
+  <text x="160" y="481" text-anchor="middle" font-size="12" fill="#555">setStatus</text>
 
-  <line x1="170" y1="160" x2="170" y2="206" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="160" y1="160" x2="160" y2="216" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="160" y1="420" x2="160" y2="162" stroke="#d35400" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-orange)" />
+  <text x="18" y="305" text-anchor="start" font-size="11" fill="#d35400">render to</text>
+  <text x="18" y="319" text-anchor="start" font-size="11" fill="#d35400">thread</text>
 
-  <line x1="170" y1="480" x2="170" y2="162" stroke="#d35400" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#arrow-orange)" />
-  <text x="30" y="330" text-anchor="start" font-size="12" fill="#d35400">render to</text>
-  <text x="30" y="346" text-anchor="start" font-size="12" fill="#d35400">thread</text>
+  <!-- ============ Middle column ============ -->
 
-  <!-- ============ Channel framework column ============ -->
+  <!-- Framework interface box (one tidy box, not a band) -->
+  <rect x="345" y="80" width="555" height="72" rx="10" ry="10" fill="#f5f0ff" stroke="#6b46c1" stroke-width="2" stroke-dasharray="4 3" />
+  <text x="622" y="108" text-anchor="middle" font-weight="700" fill="#6b46c1">Channel framework interface (shared, channel-agnostic)</text>
+  <text x="622" y="130" text-anchor="middle" font-size="12" fill="#6b46c1">AgentChannelHandler · InboundReply · SentMessageRef</text>
 
-  <!-- Shared primitives band (lighter tint) -->
-  <rect x="350" y="80" width="520" height="250" rx="14" ry="14" fill="#f5f0ff" stroke="#6b46c1" stroke-width="1.5" stroke-dasharray="6 4" />
-  <text x="370" y="105" font-size="13" font-weight="700" fill="#6b46c1">Shared primitives</text>
-  <text x="370" y="122" font-size="11" fill="#6b46c1">channels/base.py · channels/types.py · channels/shared/</text>
+  <!-- Slack impl: vertical flow -->
+  <rect x="360" y="185" width="260" height="58" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="490" y="211" text-anchor="middle" font-weight="600">Flask route</text>
+  <text x="490" y="230" text-anchor="middle" font-size="12" fill="#555">routes/slack_routes.py</text>
 
-  <!-- AgentChannelHandler ABC -->
-  <rect x="380" y="140" width="230" height="85" rx="10" ry="10" fill="#ffffff" stroke="#6b46c1" stroke-width="2" />
-  <text x="495" y="168" text-anchor="middle" font-weight="600" fill="#6b46c1">AgentChannelHandler (ABC)</text>
-  <text x="495" y="188" text-anchor="middle" font-size="11" fill="#555">send_agent_message</text>
-  <text x="495" y="204" text-anchor="middle" font-size="11" fill="#555">thread_key_from_external_id</text>
-  <text x="495" y="220" text-anchor="middle" font-size="11" fill="#555">external_id_from_thread_key</text>
+  <rect x="360" y="275" width="260" height="58" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="490" y="301" text-anchor="middle" font-weight="600">SlackMessageRouter</text>
+  <text x="490" y="320" text-anchor="middle" font-size="12" fill="#555">dispatches to handler</text>
 
-  <!-- InboundReply / SentMessageRef -->
-  <rect x="640" y="140" width="210" height="85" rx="10" ry="10" fill="#ffffff" stroke="#6b46c1" stroke-width="2" />
-  <text x="745" y="168" text-anchor="middle" font-weight="600" fill="#6b46c1">InboundReply · SentMessageRef</text>
-  <text x="745" y="188" text-anchor="middle" font-size="11" fill="#555">thread_key, user_message,</text>
-  <text x="745" y="204" text-anchor="middle" font-size="11" fill="#555">channel_type, external_message_id</text>
-  <text x="745" y="220" text-anchor="middle" font-size="11" fill="#555">(channel-agnostic normalized form)</text>
+  <rect x="360" y="365" width="260" height="74" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="490" y="391" text-anchor="middle" font-weight="600">Super-agent handler</text>
+  <text x="490" y="410" text-anchor="middle" font-size="12" fill="#555">agentic router (turn 1)</text>
+  <text x="490" y="427" text-anchor="middle" font-size="12" fill="#555">enqueue turn on DBOS</text>
 
-  <!-- Shared helpers (session_marker + dedup) -->
-  <rect x="380" y="245" width="230" height="70" rx="10" ry="10" fill="#ffffff" stroke="#6b46c1" stroke-width="2" />
-  <text x="495" y="272" text-anchor="middle" font-weight="600" fill="#6b46c1">session_marker</text>
-  <text x="495" y="292" text-anchor="middle" font-size="11" fill="#555">Redis-backed per-thread state</text>
-  <text x="495" y="306" text-anchor="middle" font-size="11" fill="#555">{agent_guid, channel, use_assistant_api}</text>
+  <rect x="660" y="275" width="240" height="164" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="780" y="301" text-anchor="middle" font-weight="600">Renderer + post_step</text>
+  <text x="780" y="321" text-anchor="middle" font-size="12" fill="#555">markdown → Block Kit</text>
+  <text x="780" y="348" text-anchor="middle" font-size="12" fill="#555">Slash: chat.update</text>
+  <text x="780" y="370" text-anchor="middle" font-size="12" fill="#555">Split-pane: postMessage</text>
+  <text x="780" y="386" text-anchor="middle" font-size="12" fill="#555">+ setStatus</text>
+  <text x="780" y="415" text-anchor="middle" font-size="11" fill="#888">(same renderer, different</text>
+  <text x="780" y="429" text-anchor="middle" font-size="11" fill="#888">Slack API calls per surface)</text>
 
-  <rect x="640" y="245" width="210" height="70" rx="10" ry="10" fill="#ffffff" stroke="#6b46c1" stroke-width="2" />
-  <text x="745" y="272" text-anchor="middle" font-weight="600" fill="#6b46c1">dedup</text>
-  <text x="745" y="292" text-anchor="middle" font-size="11" fill="#555">client_msg_id / event_ts keyed</text>
-  <text x="745" y="306" text-anchor="middle" font-size="11" fill="#555">drops Slack retries</text>
+  <!-- Arrows within impl -->
+  <line x1="490" y1="243" x2="490" y2="271" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="490" y1="333" x2="490" y2="361" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
 
-  <!-- Slack implementation band -->
-  <rect x="350" y="360" width="520" height="330" rx="14" ry="14" fill="#ffffff" stroke="#222" stroke-width="1.5" stroke-dasharray="6 4" />
-  <text x="370" y="385" font-size="13" font-weight="700">Slack implementation</text>
-  <text x="370" y="401" font-size="11" fill="#555">channels/slack/ · notif/slack/ · routes/slack_routes.py</text>
+  <!-- impl implements interface -->
+  <line x1="490" y1="185" x2="490" y2="156" stroke="#6b46c1" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-purple)" />
+  <text x="530" y="175" text-anchor="start" font-size="11" fill="#6b46c1">implements</text>
 
-  <!-- Flask route -->
-  <rect x="380" y="420" width="260" height="72" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="510" y="446" text-anchor="middle" font-weight="600">routes/slack_routes.py</text>
-  <text x="510" y="464" text-anchor="middle" font-size="12" fill="#555">slash → dispatch</text>
-  <text x="510" y="480" text-anchor="middle" font-size="12" fill="#555">event → SlackMessageRouter</text>
-
-  <!-- Router -->
-  <rect x="380" y="510" width="260" height="60" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="510" y="536" text-anchor="middle" font-weight="600">SlackMessageRouter</text>
-  <text x="510" y="554" text-anchor="middle" font-size="12" fill="#555">picks super-agent handler</text>
-
-  <!-- Celery task -->
-  <rect x="380" y="590" width="260" height="80" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="510" y="616" text-anchor="middle" font-weight="600">Celery task</text>
-  <text x="510" y="634" text-anchor="middle" font-size="11" fill="#555">initiate_super_agent_slack_session</text>
-  <text x="510" y="650" text-anchor="middle" font-size="11" fill="#555">handler._enqueue_turn</text>
-
-  <!-- post_step / renderer -->
-  <rect x="660" y="510" width="200" height="120" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="760" y="536" text-anchor="middle" font-weight="600">post_step.py</text>
-  <text x="760" y="554" text-anchor="middle" font-size="11" fill="#555">renderer →</text>
-  <text x="760" y="570" text-anchor="middle" font-size="11" fill="#555">Slack Block Kit</text>
-  <text x="760" y="590" text-anchor="middle" font-size="11" fill="#555">chat.update</text>
-  <text x="760" y="606" text-anchor="middle" font-size="11" fill="#555">chat.postMessage</text>
-  <text x="760" y="622" text-anchor="middle" font-size="11" fill="#555">setStatus</text>
-
-  <!-- arrows: webhook → route -->
-  <line x1="290" y1="125" x2="376" y2="440" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
-  <text x="330" y="272" text-anchor="middle" font-size="11" fill="#555">slash</text>
-
-  <line x1="290" y1="245" x2="376" y2="450" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
-  <text x="332" y="335" text-anchor="middle" font-size="11" fill="#555">event</text>
-
-  <!-- arrows within slack impl -->
-  <line x1="510" y1="492" x2="510" y2="506" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
-  <line x1="510" y1="570" x2="510" y2="586" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
-
-  <!-- Slack impl uses shared primitives (dashed upward arrows) -->
-  <line x1="510" y1="420" x2="510" y2="318" stroke="#6b46c1" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-purple)" />
-  <text x="553" y="370" text-anchor="start" font-size="11" fill="#6b46c1">use marker / dedup</text>
-
-  <line x1="640" y1="630" x2="745" y2="320" stroke="#6b46c1" stroke-width="1.8" stroke-dasharray="5 3" marker-end="url(#arrow-purple)" />
-  <text x="695" y="475" text-anchor="middle" font-size="11" fill="#6b46c1">InboundReply</text>
+  <!-- webhook → flask route -->
+  <line x1="270" y1="245" x2="356" y2="212" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
 
   <!-- ============ Agent runtime column ============ -->
 
-  <rect x="940" y="90" width="340" height="72" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="1110" y="118" text-anchor="middle" font-weight="600">DBOS queue</text>
-  <text x="1110" y="140" text-anchor="middle" font-size="12" fill="#555">agent_turns · partitioned by session</text>
+  <rect x="950" y="100" width="340" height="60" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="1120" y="127" text-anchor="middle" font-weight="600">DBOS queue</text>
+  <text x="1120" y="147" text-anchor="middle" font-size="11" fill="#555">one turn per session, retried on crash</text>
 
-  <rect x="940" y="195" width="340" height="145" rx="10" ry="10" fill="#fff7e6" stroke="#d35400" stroke-width="2" />
-  <text x="1110" y="222" text-anchor="middle" font-weight="700" fill="#d35400">agent_turn_workflow (DBOS)</text>
-  <text x="1110" y="248" text-anchor="middle" font-size="12" fill="#555">asyncio.gather:</text>
-  <text x="1110" y="268" text-anchor="middle" font-size="12" fill="#555">· run_agent_turn (LangGraph)</text>
-  <text x="1110" y="288" text-anchor="middle" font-size="12" fill="#555">· stream_placeholder_updates   (slash)</text>
-  <text x="1110" y="308" text-anchor="middle" font-size="12" fill="#555">  or stream_assistant_status_updates</text>
-  <text x="1110" y="325" text-anchor="middle" font-size="11" fill="#888">(use_assistant_api branch)</text>
+  <rect x="950" y="190" width="340" height="118" rx="10" ry="10" fill="#fff7e6" stroke="#d35400" stroke-width="2" />
+  <text x="1120" y="218" text-anchor="middle" font-weight="700" fill="#d35400">agent_turn_workflow</text>
+  <text x="1120" y="243" text-anchor="middle" font-size="12" fill="#555">run_agent_turn (LangGraph)</text>
+  <text x="1120" y="262" text-anchor="middle" font-size="12" fill="#555">+ stream tailer → Slack</text>
+  <text x="1120" y="290" text-anchor="middle" font-size="11" fill="#888">one workflow, branches on</text>
+  <text x="1120" y="303" text-anchor="middle" font-size="11" fill="#888">use_assistant_api</text>
 
-  <rect x="940" y="380" width="340" height="72" rx="10" ry="10" fill="#eef6ff" stroke="#1f6feb" stroke-width="2" />
-  <text x="1110" y="408" text-anchor="middle" font-weight="600" fill="#1f6feb">Redis stream</text>
-  <text x="1110" y="430" text-anchor="middle" font-size="12" fill="#1f6feb">agent:stream:&lt;session_guid&gt;</text>
+  <rect x="950" y="340" width="340" height="60" rx="10" ry="10" fill="#eef6ff" stroke="#1f6feb" stroke-width="2" />
+  <text x="1120" y="367" text-anchor="middle" font-weight="600" fill="#1f6feb">Redis stream</text>
+  <text x="1120" y="385" text-anchor="middle" font-size="11" fill="#1f6feb">one event per LangChain step</text>
 
-  <rect x="940" y="490" width="340" height="90" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
-  <text x="1110" y="518" text-anchor="middle" font-weight="600">EntCopilotSession</text>
-  <text x="1110" y="538" text-anchor="middle" font-size="12" fill="#555">+ EntCopilotMessage (durable)</text>
-  <text x="1110" y="556" text-anchor="middle" font-size="12" fill="#555">LangGraph checkpoint in Redis</text>
+  <rect x="950" y="430" width="340" height="72" rx="10" ry="10" fill="#ffffff" stroke="#222" stroke-width="2" />
+  <text x="1120" y="457" text-anchor="middle" font-weight="600">EntCopilotSession</text>
+  <text x="1120" y="475" text-anchor="middle" font-size="12" fill="#555">durable conversation history</text>
+  <text x="1120" y="491" text-anchor="middle" font-size="12" fill="#555">(messages, tool calls)</text>
 
-  <!-- Celery → DBOS queue -->
-  <line x1="640" y1="625" x2="936" y2="128" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
-  <text x="800" y="350" text-anchor="middle" font-size="12" fill="#222">DBOSClient.enqueue</text>
+  <!-- Handler → DBOS queue -->
+  <line x1="620" y1="400" x2="946" y2="132" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="800" y="250" text-anchor="middle" font-size="11" fill="#222">enqueue</text>
 
   <!-- Queue → workflow -->
-  <line x1="1110" y1="162" x2="1110" y2="191" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
+  <line x1="1120" y1="160" x2="1120" y2="186" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
 
-  <!-- Workflow → Redis stream (emit) -->
-  <line x1="1040" y1="340" x2="1040" y2="376" stroke="#1f6feb" stroke-width="2" marker-end="url(#arrow-blue)" />
-  <text x="1000" y="365" text-anchor="middle" font-size="11" fill="#1f6feb">emit</text>
+  <!-- Workflow → Redis stream -->
+  <line x1="1060" y1="308" x2="1060" y2="336" stroke="#1f6feb" stroke-width="2" marker-end="url(#arrow-blue)" />
+  <text x="1024" y="330" text-anchor="middle" font-size="10" fill="#1f6feb">emit</text>
 
-  <!-- Workflow → Ent (persist) -->
-  <line x1="1180" y1="340" x2="1180" y2="486" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
-  <text x="1220" y="420" text-anchor="middle" font-size="11" fill="#222">persist</text>
+  <!-- Workflow → Ent -->
+  <line x1="1190" y1="308" x2="1190" y2="426" stroke="#222" stroke-width="2" marker-end="url(#arrow)" />
+  <text x="1222" y="370" text-anchor="middle" font-size="10" fill="#222">persist</text>
 
-  <!-- Redis stream → post_step (tail) -->
-  <line x1="936" y1="416" x2="864" y2="560" stroke="#1f6feb" stroke-width="2" marker-end="url(#arrow-blue)" />
-  <text x="895" y="490" text-anchor="middle" font-size="11" fill="#1f6feb">tail</text>
+  <!-- Redis stream → post_step -->
+  <line x1="946" y1="370" x2="904" y2="360" stroke="#1f6feb" stroke-width="2" marker-end="url(#arrow-blue)" />
+  <text x="920" y="350" text-anchor="middle" font-size="10" fill="#1f6feb">tail</text>
 
   <!-- post_step → Slack Web API -->
-  <line x1="660" y1="565" x2="294" y2="520" stroke="#d35400" stroke-width="2" marker-end="url(#arrow-orange)" />
-  <text x="470" y="555" text-anchor="middle" font-size="12" fill="#d35400">WebClient call</text>
+  <line x1="660" y1="415" x2="274" y2="450" stroke="#d35400" stroke-width="2" marker-end="url(#arrow-orange)" />
 
   <!-- Footnote -->
-  <text x="750" y="722" text-anchor="middle" font-size="13" fill="#555">
-    Shared primitives (purple, top band) are channel-agnostic. Email and request-comments implementations drop into the same ABC.
-  </text>
-  <text x="750" y="742" text-anchor="middle" font-size="13" fill="#555">
-    One DBOS workflow, two finalize paths — slash edits a placeholder; split-pane posts a fresh reply plus native setStatus.
-  </text>
+  <text x="700" y="555" text-anchor="middle" font-size="12" fill="#666">Email and comment channels drop into the same purple interface; only the middle column changes.</text>
 </svg>
